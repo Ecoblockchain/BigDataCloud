@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<head>
+	<title>Chat with the cloud!</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0 ; maximum-scale = 1.0; user-scalable = 0"/>
+  <script src="libraries/p5.js" type="text/javascript"></script>
+
+  <!-- Uncomment the lines below to include extra p5 libraries -->
+  <!--<script src="libraries/p5.dom.js" type="text/javascript"></script>-->
+  <!--<script src="libraries/p5.sound.js" type="text/javascript"></script>-->
+
+  <script src="sketch.js" type="text/javascript"></script>
+
+	<style>
+
+    html{
+    	/*height:568px;
+        width:320px;*/
+    }
+    body{
+    	/*height:100%;
+        width:100%;*/
+    	background-color:rgb(52, 152, 219);
+    }
+
+	*{ margin:0; padding: 0; box-sizing: border-box;}
+    body { font:13px Helvetica, Arial;}
+    form { background: rgb(52, 73, 94); padding: 3px; position: fixed; bottom:0px; left:0px;  width: 320px;}
+    form input { width:315px; border: 0; padding: 10px; margin: .5% 0;}
+    form button { width: 315px; background: rgb(241, 196, 15); border: none; padding: 10px;}
+    #messages { list-style-type: none; margin:60% 0; padding: 20; }
+    #messages li { padding: 5px 100px; background-color:white; text-align: center; font-size:14px; }
+/*	#messages li:nth-child(odd) {background: #eee; }*/
+
+    .MessageCount{
+    }
+
+    #BrowseBox{
+    /*height:100%;*/
+    /*width:100%;*/
+    background-color: transparent;
+    position:absolute;
+    z-index: -9999;
+    }
+
+    li{
+    	text-align: center;
+    }
+
+    .title{
+    	height:50px;
+    	width:250px;
+    	background-color:rgb(41, 128, 185); 
+    	text-align: center;
+    	font-family: 'Yanone Kaffeesatz', sans-serif;
+    	font-size:40px;
+    	color:white;
+    }
+
+    #talk{
+    	position:absolute;
+    	top:10px;
+        text-align: center center;
+    }
+    #to{
+    	position:absolute;
+    	top:170px;
+    }
+    #cloud{
+
+    	position:absolute;
+    	top:260px;
+    }
+    #cloudImage{
+
+        position:absolute;
+        top:18%;
+        left:10%;
+    }
+
+    #logo{
+        position:absolute;
+        top:0px;
+        left:0px;
+    }
+
+    #wrapper{
+        min-height:100%;
+        max-width: 320px;
+
+
+    }
+
+	</style>
+
+</head>
+<body>
+
+<div id="wrapper">
+    <div id="BrowseBox"></div>
+	<ul id = "messages">
+	</ul>
+
+	<form action="">
+		<input id = "m" autocomplete = "off" /><button>send</button>
+	</form>
+	
+
+
+
+	<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+	<script>
+
+	var BrowserHeight;
+	var BrowserWidth;
+    $(document).ready(function(){
+        BrowserHeight = BrowseBox.offsetHeight;
+
+        BrowserWidth = BrowseBox.offsetWidth;
+        //alert(BrowseBox.offsetWidth);
+    });
+
+
+	var serverAddress;
+    var MessageCount = 0;
+
+	$.get("/address", function(data){
+		serverAddress = data;
+			var socket = new WebSocket('ws://'+serverAddress +':3000');
+	$('form').submit(function(){
+		socket.send($('#m').val());
+		//console.log($('#m').val());
+        MessageCount ++; 
+		$('#messages').append($( '<li class = "MassageBox" id="Box' + MessageCount + '">' ).text($('#m').val()));
+		var thisBox = "Box" + MessageCount.toString();
+
+		$('#' + thisBox).css("margin-top", BrowserHeight + "px");
+		$('#' + thisBox).animate({marginTop:'0px'});
+
+		$('#m').val('');
+
+		return false;
+	});
+
+	});
+
+
+
+	</script>
+		<div id = "talk" class = "title">TEXT TO CLOUD</div>
+<!-- 	<div id = "to" class = "title">TO</div>
+	<div id = "cloud" class = "title">CLOUD</div> -->
+	<div id = "cloudImage">
+		<img src = "http://i.imgur.com/xOypqJc.png" height="100" width="250">
+	</div>
+
+	<!-- <div id = "logo" >
+		<img src = "http://i.imgur.com/MgTegXs.png" height = "80" width = "80">
+	</div> -->
+</div>
+
+</body>
+<link href='http://fonts.googleapis.com/css?family=Montserrat|Yanone+Kaffeesatz|Titillium+Web|Francois+One' rel='stylesheet' type='text/css'>
+</html>

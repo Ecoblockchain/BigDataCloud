@@ -1,0 +1,86 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'os' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 warn package.json message-test@0.0.1 No repository field.
+5 warn package.json message-test@0.0.1 No README data
+6 verbose readDependencies using package.json deps
+7 verbose cache add [ 'os', null ]
+8 verbose cache add name=undefined spec="os" args=["os",null]
+9 verbose parsed url { protocol: null,
+9 verbose parsed url   slashes: null,
+9 verbose parsed url   auth: null,
+9 verbose parsed url   host: null,
+9 verbose parsed url   port: null,
+9 verbose parsed url   hostname: null,
+9 verbose parsed url   hash: null,
+9 verbose parsed url   search: null,
+9 verbose parsed url   query: null,
+9 verbose parsed url   pathname: 'os',
+9 verbose parsed url   path: 'os',
+9 verbose parsed url   href: 'os' }
+10 silly lockFile 999a3419-os os
+11 verbose lock os /Users/ZJW/.npm/999a3419-os.lock
+12 silly lockFile 999a3419-os os
+13 silly lockFile 999a3419-os os
+14 verbose addNamed [ 'os', '' ]
+15 verbose addNamed [ null, '*' ]
+16 silly lockFile 46c56d42-os os@
+17 verbose lock os@ /Users/ZJW/.npm/46c56d42-os.lock
+18 silly addNameRange { name: 'os', range: '*', hasData: false }
+19 verbose request where is /os
+20 verbose request registry https://registry.npmjs.org/
+21 verbose request id 61faed66def9d04b
+22 verbose url raw /os
+23 verbose url resolving [ 'https://registry.npmjs.org/', './os' ]
+24 verbose url resolved https://registry.npmjs.org/os
+25 verbose request where is https://registry.npmjs.org/os
+26 info trying registry request attempt 1 at 17:40:26
+27 http GET https://registry.npmjs.org/os
+28 http 404 https://registry.npmjs.org/os
+29 verbose headers { date: 'Thu, 11 Dec 2014 22:40:26 GMT',
+29 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+29 verbose headers   'content-type': 'application/json',
+29 verbose headers   'cache-control': 'max-age=0',
+29 verbose headers   'content-length': '52',
+29 verbose headers   'accept-ranges': 'bytes',
+29 verbose headers   via: '1.1 varnish',
+29 verbose headers   age: '0',
+29 verbose headers   'x-served-by': 'cache-jfk1029-JFK',
+29 verbose headers   'x-cache': 'MISS',
+29 verbose headers   'x-cache-hits': '0',
+29 verbose headers   'x-timer': 'S1418337626.455369,VS0,VE26',
+29 verbose headers   'keep-alive': 'timeout=10, max=50',
+29 verbose headers   connection: 'Keep-Alive' }
+30 silly registry.get cb [ 404,
+30 silly registry.get   { date: 'Thu, 11 Dec 2014 22:40:26 GMT',
+30 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+30 silly registry.get     'content-type': 'application/json',
+30 silly registry.get     'cache-control': 'max-age=0',
+30 silly registry.get     'content-length': '52',
+30 silly registry.get     'accept-ranges': 'bytes',
+30 silly registry.get     via: '1.1 varnish',
+30 silly registry.get     age: '0',
+30 silly registry.get     'x-served-by': 'cache-jfk1029-JFK',
+30 silly registry.get     'x-cache': 'MISS',
+30 silly registry.get     'x-cache-hits': '0',
+30 silly registry.get     'x-timer': 'S1418337626.455369,VS0,VE26',
+30 silly registry.get     'keep-alive': 'timeout=10, max=50',
+30 silly registry.get     connection: 'Keep-Alive' } ]
+31 silly lockFile 46c56d42-os os@
+32 silly lockFile 46c56d42-os os@
+33 error 404 404 Not Found: os
+33 error 404
+33 error 404 'os' is not in the npm registry.
+33 error 404 You should bug the author to publish it
+33 error 404 It was specified as a dependency of 'message-test'
+33 error 404
+33 error 404 Note that you can also install from a
+33 error 404 tarball, folder, or http url, or git url.
+34 error System Darwin 13.4.0
+35 error command "node" "/usr/local/bin/npm" "install" "os"
+36 error cwd /Users/ZJW/{STUDY}/NYU/ITP/Networked Media/Final/message-test
+37 error node -v v0.10.33
+38 error npm -v 1.4.28
+39 error code E404
+40 verbose exit [ 1, true ]
